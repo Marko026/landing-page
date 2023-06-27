@@ -1,0 +1,1312 @@
+@import "partials/_variables";
+@import "partials/_fonts";
+@import "partials/_basic";
+@import "partials/_mixins";
+
+
+// header
+body {
+  position: relative;
+
+  .eclipse1 {
+    img {
+      width: 25%;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .eclipse2 {
+    img {
+      width: 29%;
+      position: absolute;
+      top: -50px;
+      left: -90px;
+
+    }
+  }
+
+  .eclipse3 {
+    img {
+      width: 31%;
+      position: absolute;
+      top: -50px;
+      left: -200px;
+    }
+  }
+
+}
+
+
+
+header {
+  padding: 82px 0 158px;
+
+
+
+  @include responsive(laptop) {
+    padding: 30px 0 100px;
+  }
+
+  @include responsive(xs-phone) {
+    padding: 20px 0 20px;
+  }
+
+
+  .container {
+    @include flex($justify: space-between);
+
+
+    .hover-menu {
+      display: none;
+
+      @include responsive(phone) {
+        display: block;
+      }
+
+      &:hover {
+
+        span:nth-child(1) {
+          transform: rotate(45deg) translate(3px, 3px);
+        }
+
+        span:nth-child(2) {
+          transform: rotate(-45deg) translate(3px, -3px);
+        }
+
+        span:nth-child(3) {
+          display: none;
+        }
+
+      }
+
+      span {
+        display: block;
+        margin-bottom: 5px;
+        width: 45px;
+        height: 3px;
+        background-color: $primary;
+        transition: 0.5s;
+        margin-right: 10px;
+      }
+    }
+
+    .logo {
+      flex: 0 0 20%;
+
+
+
+      img {
+        width: 198px;
+        margin-bottom: 20px;
+
+        @include responsive(xs-phone) {
+          width: 150px;
+        }
+
+      }
+    }
+
+    nav {
+      flex: 0 0 50%;
+
+      @include responsive(phone) {
+        display: none
+      }
+
+
+      ul {
+        @include flex;
+
+        li {
+
+          margin-right: 30px;
+
+          a {
+            color: $secondary;
+            position: relative;
+            text-transform: capitalize;
+            font-weight: 500;
+
+            &:hover {
+              &:after {
+                width: 100%;
+              }
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background-color: $primary;
+              transition: all 0.3s ease-in-out;
+            }
+          }
+
+        }
+      }
+
+    }
+
+    .book_table {
+      flex: 0 0 20%;
+      text-align: right;
+
+      @include responsive(tablet) {
+        display: none;
+      }
+
+      a {
+        @include button;
+
+        @include responsive(laptop) {
+          padding: 15px 10px !important;
+        }
+      }
+
+    }
+  }
+}
+
+// hero
+.section-hero {
+  position: relative;
+  margin-bottom: 158px;
+
+  @include responsive(xs-phone) {
+    margin-bottom: 50px;
+  }
+
+  .circle-text {
+
+    @include responsive(laptop) {
+      display: none;
+    }
+
+    @include responsive(tablet) {
+      top: 65px;
+      opacity: 0.5;
+    }
+
+    @include responsive(phone) {
+      top: 105px;
+      left: 0px;
+      opacity: 0.5;
+    }
+
+    @include responsive(xs-phone) {
+      top: 285px;
+      left: 0px;
+      width: 30%;
+      opacity: 0.5;
+    }
+
+    position: absolute;
+    top: -180px;
+    left: 80px;
+  }
+
+  .container {
+
+
+    @include flex($justify: space-around, $align: center);
+
+    @include responsive(tablet) {
+      flex-direction: column;
+    }
+
+    .main_message {
+      flex: 0 0 50%;
+      position: relative;
+
+      @include responsive(laptop) {
+
+        h1 {
+          font-size: 60px;
+          line-height: 65px;
+        }
+      }
+
+      @include responsive(tablet) {
+        text-align: center;
+
+        h1 {
+          font-size: 65px;
+        }
+
+        p {
+          max-width: 80%;
+          margin: auto;
+          padding: 50px 0;
+
+          @include responsive(xs-phone) {
+            min-width: 100%;
+            margin: 0;
+          }
+
+        }
+      }
+
+      @include responsive(phone) {
+
+        h1 {
+          font-size: 55px;
+        }
+      }
+
+      @include responsive(xs-phone) {
+
+        h1 {
+          font-size: 45px;
+          line-height: 50px;
+        }
+
+      }
+    }
+
+    .hero-links {
+
+      @include responsive(tablet) {
+        margin-bottom: 30px
+      }
+
+      a {
+        @include button;
+        background-color: $secondary;
+        margin-right: 0px;
+
+      }
+
+
+      a:last-child {
+        margin-left: 20px;
+        background-color: $primary;
+
+        &:hover {
+          background-color: darken($primary, 10%);
+        }
+      }
+    }
+  }
+
+  .hero-img {
+    flex: 0 0 40%;
+    position: relative;
+
+
+    img:first-child {
+      width: 90%;
+      margin: auto;
+    }
+
+
+    img:last-child {
+      position: absolute;
+      bottom: 0;
+      left: -150px;
+      width: 60%;
+
+      @include responsive(desktop) {
+        left: -100px;
+      }
+
+      @include responsive(laptop) {
+        left: -50px;
+        width: 50%;
+      }
+
+      @include responsive(tablet) {
+        left: -40px;
+        width: 45%;
+      }
+
+      @include responsive(phone) {
+        width: 40%;
+        left: 0px;
+      }
+
+      @include responsive(xs-phone) {
+        display: none;
+      }
+    }
+  }
+}
+
+.flower1 {
+  position: absolute;
+  top: -80px;
+  left: -150px;
+  width: 70%;
+  z-index: -1;
+  opacity: 0.2;
+
+  @include responsive(desktop) {
+    top: -50px;
+    left: -100px;
+  }
+
+  @include responsive(laptop) {
+    left: -60px;
+    top: -50px;
+    width: 50%;
+  }
+
+  @include responsive(tablet) {
+    left: -40px;
+    top: -50px;
+  }
+
+  @include responsive(phone) {
+    display: none;
+  }
+
+}
+
+.flower2 {
+  position: absolute;
+  top: -130px;
+  right: -100px;
+  width: 60%;
+  z-index: -1;
+  opacity: 0.5;
+
+  @include responsive(desktop) {
+    top: -100px;
+    right: -20px;
+  }
+
+  @include responsive(laptop) {
+    top: -70px;
+    right: -10px;
+    width: 50%;
+  }
+
+  @include responsive(tablet) {
+    top: -50px;
+    right: -40px;
+    width: 45%;
+  }
+
+  @include responsive(phone) {
+    display: none;
+  }
+
+
+}
+
+.flower3 {
+  position: absolute;
+  bottom: -10px;
+  right: -150px;
+  width: 60%;
+  z-index: -1;
+
+  @include responsive(desktop) {
+    bottom: -150px;
+    left: -250px;
+    width: 40%;
+  }
+
+  @include responsive(laptop) {
+    display: none;
+  }
+
+}
+
+//Section special Dishes 
+.main-menu {
+  padding: 92px 0 124px;
+  background-color: #ededed;
+  position: relative;
+
+  @include responsive(tablet) {
+    padding: 30px 0 0px;
+  }
+
+  .special1 {
+    position: absolute;
+    top: 0px;
+    left: 250px;
+    width: 15%;
+
+    @include responsive(desktop) {
+      left: 0;
+      top: 150px;
+    }
+
+    @include responsive(laptop) {
+      display: none;
+    }
+
+    @include responsive(tablet) {
+      left: 0;
+      top: 150px;
+    }
+  }
+
+  .special2 {
+    position: absolute;
+    top: 0px;
+    right: 350px;
+    width: 12%;
+
+    @include responsive(desktop) {
+      right: 0;
+      top: 150px;
+    }
+
+    @include responsive(tablet) {
+      right: 0;
+      top: 150px;
+    }
+
+  }
+
+  .special3 {
+    position: absolute;
+    bottom: 0px;
+    right: 100px;
+    width: 13%;
+
+
+
+  }
+
+  .special4 {
+    position: absolute;
+    bottom: 0px;
+    right: 380px;
+    width: 8%;
+
+    @include responsive(laptop) {
+      right: 0;
+    }
+  }
+
+  .special5 {
+    position: absolute;
+    bottom: 20px;
+    left: 400px;
+    width: 8%;
+    opacity: 0.1;
+
+    @include responsive(laptop) {
+      left: 50px;
+    }
+
+    @include responsive(phone) {
+      display: none;
+    }
+
+    @include responsive(xs-phone) {
+      display: none;
+    }
+
+  }
+
+  .container {
+
+    .menu-title {
+      text-align: center;
+      margin-bottom: 70px;
+
+      @include responsive(xs-phone) {
+        margin-bottom: 20px;
+
+        h2 {
+          font-size: 40px;
+        }
+      }
+
+    }
+
+    .menu-items {
+      @include flex($justify: space-between, $align: center);
+      margin-top: 200px;
+
+      @include responsive(desktop) {
+        @include flex($justify: space-around, $align: center, $wrap: wrap);
+      }
+
+      @include responsive(xs-phone) {
+        margin-top: 100px;
+      }
+
+      article {
+
+        flex: 0 0 21%;
+
+
+        @include responsive(desktop) {
+          flex: 0 0 40%;
+          margin-bottom: 160px;
+        }
+
+        @include responsive(phone) {
+          flex: 0 0 80%;
+        }
+
+
+        border: 2px solid $white;
+        text-align: center;
+        border-radius: 30% 20px 30% 20px;
+        padding: 0 20px;
+        transition: 0.5s;
+        position: relative;
+
+        &:hover {
+          border-radius: 20px 30% 20px 30%;
+          border-color: $bg-color;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        &:hover {
+          background-color: $white;
+        }
+
+        p {
+          padding: 20px 0;
+        }
+
+        .menu-item {
+          height: 300px;
+          position: relative;
+
+          .menu-item-info {
+            position: absolute;
+            bottom: 10px;
+
+          }
+
+          img {
+            max-width: 60%;
+            margin: 0 auto;
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            @include responsive(desktop) {
+
+              top: -170px;
+            }
+
+            @include responsive(laptop) {
+              top: -120px;
+            }
+
+            @include responsive(phone) {
+              width: 250px;
+              top: -150px;
+            }
+
+            @include responsive(xs-phone) {
+              top: -120px;
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+// our-resturant
+.our-restorant {
+  background-color: $bg-color;
+  position: relative;
+  padding: 92px 0 124px;
+
+  @include responsive(tablet) {
+    padding-top: 0;
+  }
+
+  @include responsive(xs-phone) {
+    padding: 50px 0 50px;
+  }
+
+
+
+  .container {
+    @include flex($justify: space-around, $align: center);
+
+    @include responsive(tablet) {
+      flex-direction: column;
+    }
+
+
+    .img {
+      flex: 0 0 58%;
+      position: relative;
+
+      @include responsive(desktop) {
+        flex: 0 0 45%;
+      }
+    }
+
+    .leaf1 {
+      position: absolute;
+      top: 120px;
+      left: 550px;
+      width: 10%;
+
+      @include responsive(desktop) {
+        width: 20%;
+        left: 260px;
+      }
+
+      @include responsive(tablet) {
+        display: none;
+      }
+
+      @include responsive(xs-phone) {
+        width: 10%;
+        left: 200px;
+      }
+
+    }
+
+    .leaf2 {
+      position: absolute;
+      left: 100px;
+      width: 20%;
+      bottom: 200px;
+    }
+
+    .leaf3 {
+      position: absolute;
+      right: 160px;
+      width: 20%;
+      bottom: 120px;
+    }
+
+    .rest-desc {
+      flex: 0 0 35%;
+      padding-left: 50px;
+      position: relative;
+
+      @include responsive(desktop) {
+        flex: 0 0 45%;
+
+        h2 {
+          font-size: 45px;
+          line-height: 50px;
+        }
+      }
+
+      @include responsive(tablet) {
+        margin-top: 50px;
+
+        h2 {
+          text-align: center;
+          font-size: 40px;
+        }
+
+        p {
+          text-align: center;
+        }
+
+        .hero-links {
+          text-align: center;
+        }
+      }
+
+      @include responsive(phone) {
+        padding: 0;
+
+        h2 {
+          line-height: 45px;
+        }
+      }
+
+
+      .rest2 {
+        position: absolute;
+        bottom: -150px;
+        width: 10%;
+
+        @include responsive(tablet) {
+          display: none;
+        }
+      }
+
+      .rest3 {
+        position: absolute;
+        bottom: -100px;
+        left: -70px;
+        width: 20%;
+
+        @include responsive(tablet) {
+          display: none;
+        }
+
+      }
+
+      .rest4 {
+        position: absolute;
+        bottom: -200px;
+        right: -70px;
+        width: 40%;
+
+        @include responsive(desktop) {
+          width: 30%;
+          left: 200px;
+        }
+
+        @include responsive(tablet) {
+          display: none;
+        }
+
+        @include responsive(xs-phone) {
+          width: 30%;
+          right: 20px;
+        }
+
+      }
+
+      h2 {
+        margin-bottom: 30px;
+      }
+
+      p {
+        margin-bottom: 30px;
+      }
+
+      a {
+        @include button;
+
+        &:first-child {
+          background-color: $secondary;
+
+          &:hover {
+            background-color: darken($primary, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .rest1 {
+    position: absolute;
+    top: -50px;
+    width: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}
+
+// expects 
+
+.expects {
+  padding: 126px 0;
+  position: relative;
+
+  @include responsive(tablet) {
+    padding: 0 0 50px;
+  }
+
+  .onion {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 20%;
+
+
+  }
+
+  .container {
+    @include flex($justify: space-between, $align: center);
+
+
+    @include responsive(laptop) {
+      flex-direction: column-reverse;
+    }
+
+
+    article {
+      flex: 0 0 48%;
+
+      @include responsive(desktop) {
+        flex: 0 0 60%;
+      }
+
+      .expects-title {
+
+        @include responsive(laptop) {
+          text-align: center;
+        }
+
+        @include responsive(xs-phone) {
+          h2 {
+            font-size: 40px;
+          }
+        }
+
+        margin-bottom: 30px;
+
+        h2 {
+          text-transform: capitalize;
+        }
+
+        p {
+          @include responsive(laptop) {
+            margin: auto;
+            padding: 20px 0;
+          }
+
+          @include responsive(xs-phone) {
+            padding: 10px 0;
+          }
+
+          max-width: 376px;
+        }
+      }
+
+      .expects-links {
+        @include responsive(laptop) {
+          text-align: center;
+        }
+
+        margin-left: 50px;
+
+
+        a {
+          @include button;
+
+          &:first-child {
+            background-color: $secondary;
+
+            &:hover {
+              background-color: darken($primary, 10%);
+            }
+          }
+        }
+      }
+
+      .expects-des {
+        @include flex($justify: space-between, $align: center, $wrap: wrap);
+        margin-bottom: 30px;
+
+        .expects-item {
+          flex: 0 0 48%;
+          @include flex($justify: start, $align: center);
+
+          @include responsive(laptop) {
+            justify-content: center;
+          }
+
+          @include responsive(phone) {
+            flex: 0 0 100%;
+          }
+
+
+
+          p {
+            margin-left: 30px;
+
+            font-size: 15px;
+          }
+
+          i {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    .chef {
+      flex: 0 0 48%;
+
+      @include responsive(desktop) {
+        flex: 0 0 40%;
+      }
+
+      img {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// testimonials
+.section-testimonials {
+  background-color: $bg-color;
+  padding: 150px 0 200px;
+  background-image: url("./img/Group9.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left 100px;
+
+  @include responsive(tablet) {
+    padding: 50px 0 100px;
+  }
+
+
+
+  .testimonials-title {
+    text-align: center;
+
+
+    p {
+      margin: 20px auto;
+      max-width: 376px;
+    }
+  }
+
+
+
+  .slider {
+    width: 37%;
+    @include flex($direction: column);
+    text-align: center;
+    background-color: $white;
+    border-radius: 45px 25px 45px 25px;
+    position: relative;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    top: 150px;
+    left: 30%;
+    padding: 0 100px;
+
+    @include responsive(phone) {
+      width: 80%;
+      left: 10%;
+      padding: 0 50px;
+    }
+
+
+    img {
+      position: absolute;
+      width: 80px;
+      border-radius: 50%;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include responsive(desktop) {
+        top: -50px;
+      }
+
+      @include responsive(tablet) {
+        top: -50px;
+        width: 20%;
+      }
+
+    }
+
+    .desc {
+      margin-top: 50px;
+    }
+  }
+
+  .owl-carousel {
+    overflow-x: hidden !important;
+
+    .owl-item {
+      padding-bottom: 170px;
+    }
+
+  }
+
+  .owl-dots {
+    text-align: center;
+    margin-top: 150px;
+
+    @include responsive(xs-phone) {
+      margin-top: 50px;
+    }
+
+  }
+
+  .owl-carousel button.owl-dot.active {
+    background-color: $primary;
+    padding: 2px;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .owl-carousel button.owl-dot {
+    background-color: gray;
+    padding: 2px;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+}
+
+// section newsletter
+
+.newsletter {
+  text-align: center;
+  background-image: url("./img/Mask02.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 45px 45px 45px 45px;
+  padding: 140px 0;
+  @include flex($justify: center, $align: center, $direction: column);
+
+
+  @include responsive(laptop) {
+    padding: 100px 0;
+  }
+
+  @include responsive(phone) {
+    padding: 80px 0;
+  }
+
+  @include responsive(xs-phone) {
+    padding: 50px 0;
+  }
+
+
+  .newsletter-title {
+    color: $white;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 30px;
+
+    @include responsive(tablet) {
+      h2 {
+        font-size: 40px;
+        line-height: 45px;
+      }
+    }
+
+    @include responsive(xs-phone) {
+      h2 {
+        font-size: 30px;
+        line-height: 35px;
+      }
+    }
+
+
+  }
+
+  form {
+    @include flex($direction: column);
+
+    input {
+      margin-bottom: 10px;
+      padding: 20px 50px;
+      border-radius: 30px 0 30px 0;
+      border: none;
+      outline: none;
+      position: relative;
+
+
+      input::placeholder {
+        color: $text-color;
+        text-transform: capitalize;
+        font-size: 20px;
+
+        @include responsive(xs-phone) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .subscribe {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 30px 0px 30px 0px;
+      background-color: $primary;
+      color: $white;
+      border: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+      &:hover {
+        background-color: darken($primary, 10%);
+      }
+
+    }
+
+  }
+
+
+}
+
+// footer
+
+
+footer {
+  background-image: url("./img/Group10.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-top: 50px;
+
+  ul {
+    li {
+      a {
+        color: $text-color;
+        font-size: 16px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .container {
+    @include flex($justify: space-between, $align: start, $wrap: wrap);
+    padding: 85px 0;
+
+    @include responsive(tablet) {
+      padding: 0;
+    }
+
+    @include responsive(xs-phone) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .footer-logo {
+      flex: 0 0 25%;
+      position: relative;
+      top: -20px;
+
+      @include responsive(phone) {
+        flex: 0 0 100%;
+      }
+
+      @include responsive(xs-phone) {
+        flex: 0 0 100%;
+        text-align: center;
+      }
+
+
+      img {
+        width: 198px;
+
+        @include responsive(xs-phone) {
+          margin: auto;
+        }
+      }
+    }
+
+    .footer-links {
+      flex: 0 0 20%;
+
+      @include responsive(phone) {
+        flex: 0 0 45%;
+        text-align: center;
+      }
+
+      ul {
+        li {
+          a:hover {
+            transition: 0.5s;
+            margin-left: 10px;
+            color: $black;
+          }
+        }
+      }
+
+    }
+
+    .footer-social {
+      flex: 0 0 22%;
+
+      @include responsive(tablet) {
+        flex: 0 0 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      a {
+        i {
+          margin-top: 10px;
+          margin-right: 10px;
+          font-size: 20px;
+          border: 1px solid $black;
+          border-radius: 50%;
+          padding: 10px 10px;
+          color: $black;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          i {
+            background-color: $secondary;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .footer-links2 {
+      flex: 0 0 20%;
+
+      @include responsive(phone) {
+        flex: 0 0 45%;
+        text-align: center;
+
+      }
+
+      ul {
+        li {
+          a:hover {
+            transition: 0.5s;
+            margin-left: 10px;
+            color: $black;
+          }
+        }
+      }
+    }
+
+    .opening-hours {
+      flex: 0 0 100%;
+
+
+
+      h4 {
+        text-transform: uppercase;
+
+        @include responsive(xs-phone) {
+          text-align: center;
+        }
+      }
+
+      .work-days {
+        @include flex($justify: start, $align: center);
+        gap: 50px;
+
+        @include responsive(xs-phone) {
+          flex-direction: column;
+        }
+
+        .work-items {
+          p {
+            @include responsive(xs-phone) {
+              text-align: center;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    .container {
+      justify-content: center;
+      padding: 0;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
